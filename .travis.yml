@@ -24,3 +24,29 @@ matrix:
       env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="3.8.7"
     - rvm: 2.0
       env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="3.8.7"
+#adding ppc64le to run on power system
+   # Puppet supports ruby 2.4 with Puppet >= 5.0 so this should be considered the "official" build
+    - rvm: 2.4
+      env: RUBOCOP_TEST="true" RSPEC_TEST="true" PUPPET_VERSIONS="5.5.8" ENFORCE_COVERAGE="true"
+      arch: ppc64le
+    # Build with latest ruby
+    - rvm: 2.5
+      env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="5.5.8"
+      arch: ppc64le
+    # Puppet supports ruby 2.0 and 2.1 with Puppet 4.x, but build with more recent versions too
+    - rvm: 2.3
+      env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="4.10.10"
+      arch: ppc64le
+    - rvm: 2.2
+      env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="4.10.10"
+      arch: ppc64le
+    - rvm: 2.1
+      env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="4.10.10"
+      arch: ppc64le
+    # For really old ruby versions only build 3.8.7
+    - rvm: 2.1
+      env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="3.8.7"
+      arch: ppc64le
+    - rvm: 2.0
+      env: RUBOCOP_TEST="false" RSPEC_TEST="true" PUPPET_VERSIONS="3.8.7"
+      arch: ppc64le
